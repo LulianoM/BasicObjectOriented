@@ -1,5 +1,4 @@
-## Oii gente para entender como funciona o programa nós vamos fazer uma modelagem semelhante ao Airbnb
-
+## Sistema com interface simulando uma Peixaria
 
 ##### Aqui é para explicar os dados
 
