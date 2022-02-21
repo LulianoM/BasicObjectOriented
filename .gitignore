@@ -3,3 +3,4 @@ venv
 .env
 *.xlsx
 __pycache__/
+.DS_Store

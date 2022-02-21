@@ -1,23 +1,23 @@
-from classes.importedFish import ImportedFish
-from classes.fish import Fish
 import streamlit as st
+from streamlitInterface.databaseInterface import loadTables
+from streamlitInterface.fishRegistration import FishInterface
+from streamlitInterface.pescadorRegistration import PescadorInterface
 
-from streamlitInterface.fishRegistration import PeixeInterface
-
-st.header("Peixaria")
-interfaceUser = st.selectbox(
-    "selecione o que deseja:", ["Mercadoria", "Pescador", "Peixaria"]
+st.markdown("# 🐟 Sistema de Cadastro e Vendas de Peixes LTDA 🐟")
+st.markdown(
+    "#### Esse sistema ajuda pescadores a cadastrarem os peixes que querem vender e as peixarias a comprar os mesmos.Para vender peixes é necessário se cadastrar como um Pescador, na aba pescador você consiguirá vender seus peixes."
 )
 
-if interfaceUser == "Mercadoria":
-    st.subheader("Cadastre a sua mercadoria")
-    interfaceMercadoria = st.selectbox(
-        "Selecione o tipo:", ["Peixe", "Curstáceos", "Importado"]
-    )
-    if interfaceMercadoria == "Peixe":
-        PeixeInterface.CadastroPeixe()
+DataFramePescador, DataFramePeixe = loadTables()
+st.dataframe(DataFramePescador)
 
-    if interfaceMercadoria == "Curstáceos":
-        st.header("Curstáceos")
-    if interfaceMercadoria == "Importado":
-        st.header("Importado")
+TypeSelect = st.selectbox(
+    "Selecione a sua aba para preferência:", ["Pescador", "Peixaria", "Mercadoria"]
+)
+
+if TypeSelect == "Pescador":
+    PescadorInterface(DataFramePescador)
+elif TypeSelect == "Peixaria":
+    st.title("Peixaria")
+else:
+    FishInterface(DataFramePeixe, DataFramePescador)
