@@ -1,9 +1,13 @@
 import streamlit as st
-from classes.fish import Fish
+from classes.peixes import Fish
 
 
-class PeixeInterface:
-    def CadastroPeixe():
+def FishInterface(DataFramePeixe, DataFramePescador):
+    if DataFramePescador.shape[0] == 0:
+        st.error(
+            "Não há pescadores cadastrados! Cadastre um pescador primeiro antes de cadastrar um peixe"
+        )
+    else:
         firstName = st.text_input("Nome do Peixe")
         quantity = int(st.number_input("Quantidade"))
         priceUnity = float(st.number_input("Preço da Unidade"))
