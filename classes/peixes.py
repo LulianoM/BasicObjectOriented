@@ -1,17 +1,17 @@
 from datetime import datetime
 
-from classes.mercadoriaViva import MercadoriaViva
 
-
-class Fish(MercadoriaViva):
-    def __init__(self, firstName, quantity, priceUnity, codFish):
-        self.firstName = firstName
+class Fish:
+    def __init__(self, firstName, codPescador, quantity, priceUnity, codFish):
+        self.Nome = firstName
+        self.codPescador = codPescador
+        self.create_at = datetime.now()
+        self.last_att = datetime.now()
         self.quantity = quantity
         self.priceUnity = priceUnity
         self.codFish = codFish
         self.create_at = datetime.now()
         self.last_att = datetime.now()
-        self.wallet = 0
 
     def price(self):
         return self.quantity * self.priceUnity
@@ -27,3 +27,17 @@ class Fish(MercadoriaViva):
             desconto = ((days) / 100) * self.price()
             newPrice = self.price() - desconto
             return newPrice
+
+    def info(self):
+        return f"{self.Nome} - Pescado em: {self.create_at}"
+
+    def set_Nome(self, newName):
+        self.Nome = newName
+        self.last_att = datetime.now()
+        return self.Nome, self.last_att
+
+    def lastModify(self):
+        return self.last_att
+
+    def createdAt(self):
+        return self.create_at

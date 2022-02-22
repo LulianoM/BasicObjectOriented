@@ -4,3 +4,5 @@ venv
 *.xlsx
 __pycache__/
 .DS_Store
+Untitled.ipynb
+.ipynb_checkpoints
