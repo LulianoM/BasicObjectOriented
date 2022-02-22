@@ -1,5 +1,11 @@
 ## Sistema com interface simulando uma Peixaria
 
-##### Aqui é para explicar os dados
+### Tenha o `make` instalado no seu pc e em seguida rode
 
-#### Reprodução de um sistema de aluguel de imóveis (Airbnb)
+`make install`
+
+Assim ele vai criar o ambiente virtual e baixar os pacotes.
+
+### Para rodar a interface rode
+
+`make run`
