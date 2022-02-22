@@ -1,13 +1,19 @@
 from datetime import datetime
 
-from classes.mercadoriaViva import MercadoriaViva
 
-
-class ImportedFish(MercadoriaViva):
+class ImportedFish:
     def __init__(
-        self, firstName, quantity, priceWeight, codFish, origenCountry, taxImportation
+        self,
+        firstName,
+        quantity,
+        codPescador,
+        priceWeight,
+        codFish,
+        origenCountry,
+        taxImportation,
     ):
-        self.firstName = firstName
+        self.Nome = firstName
+        self.codPescador = codPescador
         self.quantity = quantity
         self.priceWeight = priceWeight
         self.codFish = codFish
@@ -15,7 +21,6 @@ class ImportedFish(MercadoriaViva):
         self.taxImportation = taxImportation
         self.create_at = datetime.now()
         self.last_att = datetime.now()
-        self.wallet = 0
 
     def price(self):
         return self.quantity * self.priceWeight
@@ -35,5 +40,19 @@ class ImportedFish(MercadoriaViva):
     def calcularPrecoComTaxaImportação(self):
         "Peixes importados tem uma taxa de importação"
         preco = self.price()
-        taxa = preco * 0.10
+        taxa = preco * self.taxImportation
         return preco + taxa
+
+    def info(self):
+        return f"{self.Nome} - Pescado em: {self.create_at}"
+
+    def set_Nome(self, newName):
+        self.Nome = newName
+        self.last_att = datetime.now()
+        return self.Nome, self.last_att
+
+    def lastModify(self):
+        return self.last_att
+
+    def createdAt(self):
+        return self.create_at

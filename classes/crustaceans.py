@@ -1,17 +1,13 @@
 from datetime import datetime
 
-from classes.mercadoriaViva import MercadoriaViva
 
-
-class Crustaceans(MercadoriaViva):
+class Crustaceans:
     def __init__(
         self,
-        firstName,
         kilos,
         priceWeight,
         codFish,
     ):
-        self.firstName = firstName
         self.kilos = kilos
         self.priceWeight = priceWeight
         self.codFish = codFish

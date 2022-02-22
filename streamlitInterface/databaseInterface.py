@@ -7,6 +7,7 @@ def createTables():
         "CodPescador": [],
         "Embarcacao": [],
         "Wallet": [],
+        "qtd_peixe": [],
     }
     DataFramePescador = pd.DataFrame(data=PescadorTable)
     DataFramePescador.to_excel("database/DataFramePescador.xlsx")

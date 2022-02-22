@@ -9,7 +9,6 @@ st.markdown(
 )
 
 DataFramePescador, DataFramePeixe = loadTables()
-st.dataframe(DataFramePescador)
 
 TypeSelect = st.selectbox(
     "Selecione a sua aba para preferência:", ["Pescador", "Peixaria", "Mercadoria"]
@@ -18,6 +17,6 @@ TypeSelect = st.selectbox(
 if TypeSelect == "Pescador":
     PescadorInterface(DataFramePescador)
 elif TypeSelect == "Peixaria":
-    st.title("Peixaria")
+    st.error("Não disponível")
 else:
     FishInterface(DataFramePeixe, DataFramePescador)
